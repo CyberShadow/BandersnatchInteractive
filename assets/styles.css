@@ -262,7 +262,7 @@ ul.controls-tips {
     padding: 16px;
     width: inherit;
     margin: 0;
-    margin: 29px auto;
+    margin: 15px auto;
     text-align: left;
 }
 
@@ -271,8 +271,8 @@ h2 {
     font-size: 1em;
 }
 
-ul.file-tips li,
-ul.controls-tips li {
+ul.file-tips > li,
+ul.controls-tips > li {
     font-size: .45em;
 }
 

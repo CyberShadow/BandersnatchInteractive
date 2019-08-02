@@ -34,22 +34,19 @@
 
 	<title>Bandersnatch Interactive Player</title>
 	<meta name="description"
-		content="With this online(html) video player you can watch Bandersnatch episode of Black Mirror interactively." />
-	<meta name="keywords" content="Bandersnatch,Bandersnatch Interactive Player,Interactive Player,whatch," />
+		content="Stand-alone open-source interactive HTML player for Black Mirror - Bandersnatch" />
+	<meta name="keywords" content="Bandersnatch,Bandersnatch Interactive Player,Interactive Player,watch," />
 	<script src="assets/bandersnatch.js"></script>
 	<script src="assets/SegmentMap.js"></script>
 	<script src="assets/scripts.js"></script>
-	<link rel="stylesheet" type="text/css" href="assets/styles.css">
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-132739093-1"></script>
 	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-
-		gtag('config', 'UA-132739093-1');
+	 // keep localizable strings out of scripts.js
+	 function askReset() {
+		 if (confirm('Are you sure you want to reset all choices, breadcrumbs, and watched scenes?'))
+			 reset();
+	 }
 	</script>
-
+	<link rel="stylesheet" type="text/css" href="assets/styles.css">
 </head>
 
 <body>
@@ -60,12 +57,12 @@
 					<div class="file-area">
 						<div class="contact">
 							<p>
-								Developed by <a href="https://github.com/mehotkhan" target="_blank">Mehotkhan</a> ,for
-								info <a href="https://github.com/mehotkhan/BandersnatchInteractive"
-									target="_blank">https://github.com/mehotkhan/BandersnatchInteractive</a>
-
-								,<b>if you want some donation : my bitcoin wallet :</b>
-								<pr>1CxaCJbh4VMNicnpktsBVfnVU5xq4QYyHW</pr>
+								Authors:
+								<a href="https://github.com/joric/bandersnatch/">Original version</a> - <a href="https://github.com/joric/">joric</a> |
+								Web page, subtitles - <a href="https://github.com/mehotkhan">Mehotkhan</a> (<a href="bitcoin:1CxaCJbh4VMNicnpktsBVfnVU5xq4QYyHW">donate</a>) |
+								Many fixes, improvements, and everything else - <a href="https://github.com/CyberShadow">CyberShadow</a>
+								<br>
+								This player remembers your choices and watch history. <a href="javascript:askReset()">Click here to reset and start from scratch.</a>
 							</p>
 						</div>
 						<input id="fileinput" type="file">
@@ -74,31 +71,30 @@
 							<span class="default">Select Bandersnatch video file ( 5:12:14 ) </span>
 							<span class="success">Great, your file is selected</span>
 							<ul class="file-tips">
-								<li>this player only work on google chrome ( on firefox dont work , codec problem,test
-									other browser ?)</li>
-								<li>download Bandersnatch video file ( 5:12:14 )</li>
-								<li>drag it on white box on page :)</li>
-								<li>Persian , English , Arabic , Spanish , Hebrew ,Portuguese ,Greek ,Turkish ,Polish ,Indonesian
-									subtitle available , if you want add another language
-									subtitle , tell me</li>
-								<li>to change subtitle : right click on video , enable show controls , after that . on
-									bottom,right you see
-									<span class="menu-item"></span> ,then you can subtitle section </li>
-								<li>Note : after change subtitle , disable show controls ,if dont disable it on full
-									screen video,you cant see
-									option selector</li>
-								<li>tested with Black.Mirror.Bandersnatch.2018.720p.WEB-DL.x264.DUAL.mkv file</li>
-
+								<li>This player is known to work only on Google Chrome or Chromium.</li>
+								<li>Obtain the Bandersnatch video file (duration should be 5:12:14).<br>
+									Tested with <code>Black.Mirror.Bandersnatch.2018.720p.WEB-DL.x264.DUAL.mkv</code>.</li>
+								<li>Drag it on top of this box (or click here to select it).</li>
+								<li>Subtitles in many languages are available.</li>
+								<li>To change the subtitle:
+									<ol>
+										<li>Right click on the video</li>
+										<li>Enable "Show controls"</li>
+										<li>Click on the <span class="menu-item"></span> in the bottom-right</li>
+										<li>Select the desired subtitle</li>
+										<li>You can now hide the player controls in the same way as step 1-2.</li>
+									</ol></li>
+								<li>Note: do not use the "full screen" button in the video player if you enable "Show controls".
+									Choice selection interface will not be visible if you do this.</li>
 							</ul>
 
 							<ul class="controls-tips">
-								<h6>controls tips</h6>
+								<h6>Keyboard controls</h6>
 								<li><kbd>F</kbd> - Toggle fullscreen</li>
 								<li><kbd>R</kbd> - Restart video</li>
-								<li><kbd>→</kbd> - Jump to the next segment (or to the next interaction zone)</li>
-								<li><kbd>←</kbd> - Jump to the previous segment (or interaction zone)</li>
+								<li><kbd>→</kbd> / <kbd>←</kbd> - Jump to the next / previous segment (or interaction zone)</li>
+								<li><kbd>↑</kbd> / <kbd>↓</kbd> - Speed up / slow down playback</li>
 								<li><kbd>Space</kbd> - Toggle play and pause</li>
-
 							</ul>
 						</div>
 					</div>
@@ -131,8 +127,6 @@
 							src="subtitle/RussianForced.vtt" default>
 						<track label="RusFull" kind="subtitles" srclang="ru"
 							src="subtitle/RussianFull.vtt">
-
-
 					</video>
 					<div class="controls">
 						<div id="choiceCaption"></div>
